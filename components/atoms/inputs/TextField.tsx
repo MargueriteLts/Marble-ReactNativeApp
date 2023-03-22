@@ -22,6 +22,7 @@ const TextField: React.FC<Props> = (props) => {
     style,
     onBlur,
     onFocus,
+    onChangeText,
     ...restOfProps
   } = props
   const [isFocused, setIsFocused] = useState(false)
@@ -63,6 +64,7 @@ const TextField: React.FC<Props> = (props) => {
           setIsFocused(true)
           onFocus?.(event)
         }}
+        onChangeText={onChangeText}
       />
       <TouchableWithoutFeedback onPress={() => inputRef.current?.focus()}>
         <Animated.View

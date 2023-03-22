@@ -1,4 +1,4 @@
-import React, { Component, useContext } from "react";
+import React, { Component, useContext, useState } from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import MarblePrimaryButton from "../../components/atoms/buttons/MarblePrimaryButton.js";
 import TextField from "../../components/atoms/inputs/TextField.tsx";
@@ -6,6 +6,8 @@ import { AuthContext, AuthProvider } from "../context/AuthContext.js";
 
   
 export default function LoginScreen() {
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
   const {login} = useContext(AuthContext);
     
   return (
@@ -18,12 +20,12 @@ export default function LoginScreen() {
         paddingHorizontal: 16,
       }}
     >
-      <TextField label="Логин" />
-      <TextField label="Пароль" />
+      <TextField label="Логин" value={email} onChangeText={text => setEmail(text)} />
+      <TextField label="Пароль" value={password} onChangeText={text => setPassword(text)} />
 
       <MarblePrimaryButton
         title={"Войти"}
-        onPress={() => login() }
+        onPress={() => login(email, password) }
       />
       
     </View>
