@@ -11,6 +11,7 @@
   "dependencies": {
     "@iconscout/react-native-unicons": "^1.0.3",
     "@iconscout/react-unicons": "^1.1.6",
+    "@react-native-async-storage/async-storage": "^1.17.12",
     "@react-navigation/bottom-tabs": "^6.5.2",
     "@react-navigation/material-bottom-tabs": "^6.2.10",
     "@react-navigation/native": "^6.1.1",

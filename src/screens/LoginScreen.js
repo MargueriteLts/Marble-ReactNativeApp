@@ -23,7 +23,7 @@ export default function LoginScreen() {
 
       <MarblePrimaryButton
         title={"Войти"}
-        onPress={() => login('mytoken') }
+        onPress={() => login() }
       />
       
     </View>

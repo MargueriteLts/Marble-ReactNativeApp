@@ -11,10 +11,12 @@ import CreateSenotaf_2 from '../CreateSenotaf_2';
 const Stack = createNativeStackNavigator();
 
 export default function CreateSenotafStack() {
-    const userToken = useContext(AuthContext);
+    const {userToken} = useContext(AuthContext);
+    console.log(userToken)
     return (
-        <Stack.Navigator initialRouteName="Создание ценотафа">
-            {userToken !== null ? <Stack.Screen name="Создание ценотафа" component={CreateSenotaf_1} /> : <Stack.Screen name="Authentification" component={AuthStack} />}
+        <Stack.Navigator initialRouteName={userToken === null ? "Authentification" : "Создание ценотафа"}>
+            <Stack.Screen name="Создание ценотафа" component={CreateSenotaf_1} />
+            <Stack.Screen name="Authentification" component={AuthStack} />
             <Stack.Screen options={{headerShown: false}} name="Создание ценотафа 2" component={CreateSenotaf_2} />
         </Stack.Navigator>
     );
