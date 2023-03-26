@@ -11,7 +11,7 @@ export const AuthProvider = ({children}) => {
     console.log(userToken)
     
     const login = (username, password) => {
-        axios.post(`http://localhost/3000/api/v1/sessions/users`, {
+        axios.post(`http://localhost:3000/api/v1/login`, {
             username,
             password
         })
